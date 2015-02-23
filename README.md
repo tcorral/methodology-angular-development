@@ -1,1 +1,1 @@
-# Angular CookBook for Backbase Widget Development
+# Angular Cookbook for Backbase Widget Development
