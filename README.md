@@ -191,8 +191,30 @@ In this example, we show you how to use Angular's hint feature in 1.2. [[View Co
 ## Angular 1.3
 
 ### When to use ?
+
+If you don't have to support Internet Explorer 8, and you are using a CXP Portal 5.5.1.1 (at least), you can upgrade AngularJS to 1.3.x branch and enjoy all new features and performance improvements!
+
 ### New features
+
+ - **[One-time bindings](https://docs.angularjs.org/guide/expression#one-time-binding)** – one time bindings are now built in AngularJS 1.3! by prefixing an expression with `::`, it will only be interpolated once, and then no longer watched
+ - **[ngAria](https://docs.angularjs.org/api/ngAria)** – a new module that helps make custom components in Angular more accessible by default
+ - **[ngMessages](https://docs.angularjs.org/api/ngMessages)** – a new directive that simplifies writing and coordinating feedback for on form validity
+ - **[ngModelOptions](https://docs.angularjs.org/api/ng/directive/ngModelOptions)** – a directive that makes it easy to customise the behavior of bound models. For instance: _debouncing_, _getter-setter-style models_, _update-on-blur_, and more...
+ - **[Strict DI](https://docs.angularjs.org/error/$injector/strictdi)** – an option for finding places in your application that will not minify due to use of short-hand DI syntax
+ - **[Angular Hint](http://blog.thoughtram.io/angularjs/2014/11/06/exploring-angular-1.3-angular-hint.html)** - now fully supported in AngularJS 1.3!
+
 ### Performance improvements
+
+
+
 #### One-time bindings
+
+
+
 #### ngModelOptions
+
+
+
 #### Filters
+
+
