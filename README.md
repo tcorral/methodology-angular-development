@@ -157,7 +157,7 @@ Filters are extremely expensive performance-wise. Each filter creates a watcher,
 
 ### Use Angular with Require.js
 
-In this simple example, we show you how to load and use AngularJS in a Require.js module. [[View Code]]()
+In this simple example, we show you how to load and use AngularJS in a Require.js module. [[View Code]](angularbundle/src/main/webapp/static/angularbundle/widgets/angular-widget)
 
 ### Use 'ControllerAs'
 
