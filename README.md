@@ -205,16 +205,67 @@ If you don't have to support Internet Explorer 8, and you are using a CXP Portal
 
 ### Performance improvements
 
-
+AngularJS 1.3.x has substantial performance improvements that reduce memory consumption, increase the speed of common DOM operations, and improve overall latency of Angular apps. You can take a look at the [benchmarks in the AngularJS source code](https://github.com/angular/angular.js/tree/master/benchmarks) on GitHub for more information.
 
 #### One-time bindings
 
+An expression that starts with `::` is considered a one-time expression. One-time expressions will stop recalculating once they are stable, which happens after the first digest if the expression result is a non-undefined value (see value stabilisation algorithm below).
 
+The main purpose of one-time binding expression is to provide a way to create a binding that gets deregistered and frees up resources once the binding is stabilised. Reducing the number of expressions being watched makes the digest loop faster and allows more information to be displayed at the same time.
+
+```html
+<div ng-controller="EventController">
+  <button ng-click="clickMe($event)">Click Me</button>
+  <p id="one-time-binding-example">One time binding: {{::name}}</p>
+  <p id="normal-binding-example">Normal binding: {{name}}</p>
+</div>
+```
 
 #### ngModelOptions
 
+**ngModelOptions** allows us to control how `ngModel` updates are done. This includes things like updating the model only after certain events are triggered or a debouncing delay, so that the view value is reflected back to the model only after a timer expires.
 
+ - updateOn:
 
-#### Filters
+```html
+<input type="text" ng-model="name" ng-model-options="{ updateOn: 'blur' }">
+<p>Hello {{name}}!</p>
+```
+
+ - debounce:
+
+```html
+<input type="search" ng-model="searchQuery" ng-model-options="{ debounce: 300 }">
+<p>Search results for: {{searchQuery}}</p>
+```
+
+ - using both debounce and updateOn:
+
+```html
+<input type="search" ng-model="searchQuery" ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }">
+<p>Search results for: {{searchQuery}}</p>
+```
+
+#### Stateless filters
+
+For performance reasons, the Angular team introduced a new concept in AngularJS 1.3: **stateless filters**. This means that by default, filters cache the evaluated value so they don't have to be re-evaluated all the time.
+
+In order to bypass this behavior, you will need to set the `$stateful` property of your filter to `true`, as such:
+
+```javascript
+var module = angular.module('myApp', [])
+
+module.filter('customFilter', ['someService', function (someService) {
+    function customFilter(input) {
+        // manipulate input with someService
+        input += someService.getData(); 
+        return input;
+    }
+    
+    customFilter.$stateful = true; // this is how you set your filter's statful property to 'true'
+    
+    return customFilter;
+}]);
+```
 
 
