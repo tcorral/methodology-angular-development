@@ -161,31 +161,31 @@ In this simple example, we show you how to load and use AngularJS in a Require.j
 
 ### Use 'ControllerAs'
 
-In this example, we show you how to use the "controller as" feature to remove dependency on the $scope. [[View Code]]()
+In this example, we show you how to use the "controller as" feature to remove dependency on the $scope. [[View Code]](angularbundle/src/main/webapp/static/angularbundle/widgets/angular-controller-as)
 
 ### Avoiding $watchers in controllers
 
-In this example, we show you how to avoid using $watchers in your controller by making use of a mediator factory. [[View Code]]()
+In this example, we show you how to avoid using $watchers in your controller by making use of a mediator factory. [[View Code]](angularbundle/src/main/webapp/static/angularbundle/widgets/angular-avoid-watcher)
 
 ### Avoiding $scope references in controllers
 
-In this example, we show you how avoid $scope references in your controller by pulling data from a factory.  [[View Code]]()
+In this example, we show you how avoid $scope references in your controller by pulling data from a factory.  [[View Code]](angularbundle/src/main/webapp/static/angularbundle/widgets/angular-consume-data-factory)
 
 ### $log
 
-In this example, we show you how to use Angular's built-in $log for better reporting in the console. [[View Code]]()
+In this example, we show you how to use Angular's built-in $log for better reporting in the console. [[View Code]](angularbundle/src/main/webapp/static/angularbundle/widgets/angular-log)
 
 ### Directives
 
-In this example, we show you how to use directives. [[View Code]]()
+In this example, we show you how to use directives. [[View Code]](angularbundle/src/main/webapp/static/angularbundle/widgets/angular-directives)
 
 ### Bind Once
 
-In this example, we show you how to use the one-time binding feature from angular 1.3 in 1.2. [[View Code]]()
+In this example, we show you how to use the one-time binding feature from angular 1.3 in 1.2. [[View Code]](angularbundle/src/main/webapp/static/angularbundle/widgets/angular-bindonce)
 
 ### Angular Hint
 
-In this example, we show you how to use Angular's hint feature in 1.2. [[View Code]]()
+In this example, we show you how to use Angular's hint feature in 1.2. [[View Code]](angularbundle/src/main/webapp/static/angularbundle/widgets/angular-hint)
 
 ## Angular 1.3
 
