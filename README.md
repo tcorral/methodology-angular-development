@@ -40,7 +40,7 @@ Furthermore, knowledge of [Backbase's Widget Development Methodology](https://gi
         - [ngModelOptions]()
         - [Filters]()
 
-## Coding Conventions (TODO)
+## Coding Conventions
 
  - Keep naming of controllers and factories simple and consistent. For example, let's say we are building a todo app, naming should be as follows:
     - `TodoCtrl` for a controller
