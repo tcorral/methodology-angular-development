@@ -48,7 +48,7 @@ Furthermore, knowledge of [Backbase's Widget Development Methodology](https://gi
     - `TodoFactory` for a factory
  - Also keep methods and properties names consistent across shared methods, such as `this.something = MyFactory.something`
 
-The value of these first two points is to simplify collaboration amongst developers, making it easy for other developers in your team to pick up and understand your code. Futhermore, you should:
+The value of these first two points is to simplify collaboration amongst developers, making it easy for other developers in your team to pick up and understand your code. Furthermore, you should:
 
  - If there is **only one controller** for your widget, instantiate the controller on the body tag of your widget definition, .i.e: `<body ng-controller="TodoCtrl">`
  - Always use the `ng-cloak` class on the body tag of your widget definition to avoid FOUC problems when loading the widget
@@ -70,7 +70,7 @@ module.controller('TodoCtrl', function($http) {
 
 ## Performance
 
-There a few keypoints to pay attention to when developing widgets using Angular which can greatly impact the overall performance of your application.
+There are a few key points to pay attention to when developing widgets using Angular which can greatly impact the overall performance of your application.
 
 ### Controllers & $scope
 
@@ -96,7 +96,7 @@ A few important points to remember about controller:
  - Controllers should never handle DOM manipulation! Use directives for this
  - Controllers should bind references to Models only (and call methods returned from promises)
  - Controllers drive Model changes, and View changes. Keyword: **drives**, not creates/persists, it triggers them!
- - Use "Controller as" when you don't need to explicity use $scope
+ - Use "Controller as" when you don't need to explicitly use $scope
  - Try to avoid injecting $scope into Controllers, generally there are better ways to do what you need, such as avoiding $scope.$watch(), for instance you can define a shared factory, like this:
 
 ```html
@@ -145,8 +145,8 @@ app.controller("SecondCtrl", ["MediatorFactory", function(mediator) {
 ### Directives
 
  - Directives are meant to handle DOM manipulation
- - Avoid using jQuery if you don't explicitely need to, this will save you about ~100Kb and an extra HTTP request
-    - Angular comes bundled with jqLite, which is more than enough to handle most common DOM manipulation and event binding operations
+ - Avoid using jQuery if you don't explicitly need to, this will save you about ~100Kb and an extra HTTP request
+    - Angular comes bundled with `jqLite`, which is more than enough to handle most common DOM manipulation and event binding operations
     - If you need to do AJAX calls, use Angular's built-in `$http` service instead of `$.ajax`
  - Directives can access the $scope of the controller it lives in; however, the scope should be considered read-only in a directive, so you should never update a scope value from a directive! Alternatively, you can use [directive's isolated scopes](http://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-2-isolate-scope)
 
@@ -262,7 +262,7 @@ module.filter('customFilter', ['someService', function (someService) {
         return input;
     }
     
-    customFilter.$stateful = true; // this is how you set your filter's statful property to 'true'
+    customFilter.$stateful = true; // this is how you set your filter's stateful property to 'true'
     
     return customFilter;
 }]);
