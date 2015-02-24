@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:g="http://www.backbase.com/2008/gadget">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Angular Widget</title>
+    </head>
+    <body class="ab-angular-widget ng-cloak" g:onload="requireWidget(__WIDGET__, 'js/widget');">
+
+        <div ng-controller="PersonController as person">
+            <h2>Hello, {{person.name}} {{person.lastName}}!</h2>
+        </div>
+
+        <div ng-controller="Controller1 as c1" class="form-group">
+            <input ng-model="c1.variable1.value" class="form-control" placeholder="type something here..." />
+        </div>
+
+        <div ng-controller="Controller2 as c2" class="form-group">
+            <input ng-model="c2.variable2.value" class="form-control" placeholder="which will get reflected here..." />
+        </div>
+
+        <div ng-controller="CountryController as vm" class="form-group">
+            <angular-select></angular-select>
+        </div>
+
+    </body>
+</html>

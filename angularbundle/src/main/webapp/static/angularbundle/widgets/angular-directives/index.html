@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:g="http://www.backbase.com/2008/gadget">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Angular Widget</title>
+    </head>
+    <body class="ab-angular-directives ng-cloak" g:onload="requireWidget(__WIDGET__, 'js/widget');">
+
+        <h2>Country Selector</h2>
+
+        <!-- note the "as vm", this is what will be referenced in the directive -->
+        <div ng-controller="CountryController as vm" class="form-group">
+            <angular-select></angular-select>
+        </div>
+
+    </body>
+</html>

@@ -49,10 +49,23 @@ Furthermore, knowledge of [Backbase's Widget Development Methodology](https://gi
 
 The value of these first two points is to simplify collaboration amongst developers, making it easy for other developers in your team to pick up and understand your code. Futhermore, you should:
 
- - Declare your controller on the body tag of your widget definition, .i.e: `<body ng-controller="TodoCtrl">`
+ - If there is **only one controller** for your widget, instantiate the controller on the body tag of your widget definition, .i.e: `<body ng-controller="TodoCtrl">`
  - Always use the `ng-cloak` class on the body tag of your widget definition to avoid FOUC problems when loading the widget
  - Avoid using Angular's `$on`, `$broadcast` and `$emit` methods. Instead, use backbase's own PubSub library for [inter-widget communication](https://my.backbase.com/resources/how-to-guides/inter-widget-communication)
- - Do not chain modules, controllers, factories and directives
+ - Do not chain modules, controllers, factories and directives. Instead, create an Angular module and cache it in a variable for faster access
+ - Explicitly inject your dependencies. This will avoid problems when minifying your JavaScript code for production:
+
+```javascript
+// good practice
+module.controller('TodoCtrl', ['$http', function($http) {
+    ...
+}]);
+
+// bad practice
+module.controller('TodoCtrl', function($http) {
+    ...
+});
+```
 
 ## Performance
 
@@ -99,6 +112,7 @@ A few important points to remember about controller:
 ```javascript
 // define a module to hold your data
 var data = angular.module('factories', []);
+
 // create a mediator factory which will persist the data
 data.factory("MediatorFactory", function() {
     return {
@@ -110,6 +124,7 @@ data.factory("MediatorFactory", function() {
 
 // create an app, lading the data module as a dependency
 var app = angular.module('test', ['factories']);
+
 // create two controllers, and inject the mediator as a dependency of each controller
 app.controller("FirstCtrl", ["MediatorFactory", function(mediator) {
     this.variable1 = mediator.obj;
@@ -156,9 +171,9 @@ In this example, we show you how to avoid using $watchers in your controller by 
 
 In this example, we show you how avoid $scope references in your controller by pulling data from a factory.  [[View Code]]()
 
-### LogX
+### $log
 
-In this example, we show you how to use angular-logX for better reporting in the console. [[View Code]]()
+In this example, we show you how to use Angular's built-in $log for better reporting in the console. [[View Code]]()
 
 ### Directives
 

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:g="http://www.backbase.com/2008/gadget">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Angular BindOnce</title>
+    </head>
+    <body class="ab-angular-bindonce ng-cloak" g:onload="requireWidget(__WIDGET__, 'js/widget');">
+        <h2>"Bind Once" example</h2>
+
+        <div ng-controller="BindOnceCtrl as ctrl">
+            <!-- regular two-way binding, watches for changes on the model -->
+            <p>Hello <b>{{ctrl.person.firstName}} {{ctrl.person.lastName}}</b>, this element keeps watching for changes on the model!</p>
+            <!-- bindonce on the other hand, will only parse the value the first time and then stop watching for model changes -->
+            <p bindonce="">Hello <b><span bo-text="ctrl.person.firstName"></span>&nbsp;<span bo-text="ctrl.person.lastName"></span></b>, I am using "bindonce", and I am much more efficient!</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+    <id>bundle-dist</id>
+    <baseDirectory>/</baseDirectory>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>target/angularbundle/</directory>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/config-info</directory>
+            <outputDirectory>/config-info</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>target/angularbundle/WEB-INF/classes/import</directory>
+            <outputDirectory>/WEB-INF/classes/import</outputDirectory>
+        </fileSet>
+    </fileSets>
+
+</assembly>

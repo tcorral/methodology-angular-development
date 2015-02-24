@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+    <widget>
+        <name>angular-avoid-watcher</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="title">
+                <value type="string">Angular Avoid Watcher</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-avoid-watcher/icon.png</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,user,designModeOnly">
+                <value type="string">$(contextRoot)/static/backbase.com.2012.aurora/html/chromes/widget_default.html</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-avoid-watcher/index.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag type="section">AngularJS</tag>
+        </tags>
+    </widget>
+    <widget>
+        <name>angular-bindonce</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="title">
+                <value type="string">Angular Bindonce</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-bindonce/icon.png</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,user,designModeOnly">
+                <value type="string">$(contextRoot)/static/backbase.com.2012.aurora/html/chromes/widget_default.html</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-bindonce/index.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag type="section">AngularJS</tag>
+        </tags>
+    </widget>
+    <widget>
+        <name>angular-consume-data-factory</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="title">
+                <value type="string">Angular Consume data from a factory</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-consume-data-factory/icon.png</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,user,designModeOnly">
+                <value type="string">$(contextRoot)/static/backbase.com.2012.aurora/html/chromes/widget_default.html</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-consume-data-factory/index.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag type="section">AngularJS</tag>
+        </tags>
+    </widget>
+    <widget>
+        <name>angular-controller-as</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="title">
+                <value type="string">Angular Controller As</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-controller-as/icon.png</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,user,designModeOnly">
+                <value type="string">$(contextRoot)/static/backbase.com.2012.aurora/html/chromes/widget_default.html</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-controller-as/index.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag type="section">AngularJS</tag>
+        </tags>
+    </widget>
+    <widget>
+        <name>angular-directives</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="title">
+                <value type="string">Angular Directives</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-directives/icon.png</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,user,designModeOnly">
+                <value type="string">$(contextRoot)/static/backbase.com.2012.aurora/html/chromes/widget_default.html</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-directives/index.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag type="section">AngularJS</tag>
+        </tags>
+    </widget>
+    <widget>
+        <name>angular-hint</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="title">
+                <value type="string">Angular Hint</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-hints/icon.png</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,user,designModeOnly">
+                <value type="string">$(contextRoot)/static/backbase.com.2012.aurora/html/chromes/widget_default.html</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-hint/index.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag type="section">AngularJS</tag>
+        </tags>
+    </widget>
+    <widget>
+        <name>angular-log</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="title">
+                <value type="string">Angular $log</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-log/icon.png</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,user,designModeOnly">
+                <value type="string">$(contextRoot)/static/backbase.com.2012.aurora/html/chromes/widget_default.html</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-log/index.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag type="section">AngularJS</tag>
+        </tags>
+    </widget>
+    <widget>
+        <name>angular-widget</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="TemplateName">
+                <value type="string">Standard_Widget</value>
+            </property>
+            <property name="title">
+                <value type="string">Angular Widget</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-widget/icon.png</value>
+            </property>
+            <property label="Widget Chrome" name="widgetChrome" viewHint="select-one,user,designModeOnly">
+                <value type="string">$(contextRoot)/static/backbase.com.2012.aurora/html/chromes/widget_default.html</value>
+            </property>
+            <property name="src">
+                <value type="string">$(contextRoot)/static/angularbundle/widgets/angular-widget/index.html</value>
+            </property>
+        </properties>
+        <tags>
+            <tag type="section">AngularJS</tag>
+        </tags>
+    </widget>
+</catalog>
