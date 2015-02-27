@@ -34,7 +34,6 @@ Furthermore, knowledge of [Backbase's Widget Development Methodology](https://gi
     - [Bind Once](#bind-once)
     - [Angular Hint](#angular-hint)
  - [Advanced Topics](#advanced-topics)
-    - [Migrating To Angular 1.3](#migrating-to-angular-13)
 
 ## Coding Conventions
 
