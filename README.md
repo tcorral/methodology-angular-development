@@ -82,7 +82,7 @@ Then, you can use your directive as such:
 
 #### Methods
 
-Methods names should be camel-cased. Also, keep methods and properties names consistent across shared methods, for exmaple:
+Methods names should be camel-cased. Also, keep methods and properties names consistent across shared methods, for example:
 
 ```javascript
 module.controller('TodoController', ['TodoFactory', function(TodoFactory) {
