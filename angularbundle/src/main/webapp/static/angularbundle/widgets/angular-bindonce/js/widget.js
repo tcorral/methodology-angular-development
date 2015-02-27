@@ -3,7 +3,7 @@ define(['angular', 'angular-bindonce'], function(angular) {
 
     var module = angular.module('AngularBindOnce', ['pasvaz.bindonce']);
 
-    module.controller('BindOnceController', ['$timeout', function($timeout) {
+    module.controller('BindOnceController', ['$timeout', '$log', function($timeout, $log) {
         var viewModel = this;
 
         // set an original value for viewModel.person
@@ -15,7 +15,7 @@ define(['angular', 'angular-bindonce'], function(angular) {
         // update the value of viewModel.person.firstName after 1500ms
         $timeout(function() {
             viewModel.person.firstName = 'Jane';
-            console.log('we updated the value of viewModel.person.firstName to: %s', viewModel.person.firstName);
+            $log.info('we updated the value of viewModel.person.firstName to: %s', viewModel.person.firstName);
         }, 1500);
     }]);
 
