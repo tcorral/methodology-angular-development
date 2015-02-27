@@ -19,7 +19,7 @@ Furthermore, knowledge of [Backbase's Widget Development Methodology](https://gi
  - [Coding Conventions](#coding-conventions)
     - [Naming Conventions](#naming-conventions)
         - [Variables](#variables)
-        - [Controllers & Factories](#modules--controllers--factories)
+        - [Controllers & Factories](#modules-controllers--factories)
         - [Directives](#directives)
         - [Methods](#methods)
     - [Overall Conventions](#overall-conventions)
