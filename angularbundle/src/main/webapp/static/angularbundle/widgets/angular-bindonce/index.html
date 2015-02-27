@@ -7,7 +7,7 @@
     <body class="ab-angular-bindonce ng-cloak" g:onload="requireWidget(__WIDGET__, 'js/widget');">
         <h2>"Bind Once" example</h2>
 
-        <div ng-controller="BindOnceCtrl as ctrl">
+        <div ng-controller="BindOnceController as ctrl">
             <!-- regular two-way binding, watches for changes on the model -->
             <p>Hello <b>{{ctrl.person.firstName}} {{ctrl.person.lastName}}</b>, this element keeps watching for changes on the model!</p>
             <!-- bindonce on the other hand, will only parse the value the first time and then stop watching for model changes -->

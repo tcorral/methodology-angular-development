@@ -9,18 +9,18 @@
 define(['angular'], function(angular) {
     'use strict';
 
-    var module = angular.module("directive.widget.select", []);
+    var module = angular.module('DemoDirective', []);
 
     /**
      * @name select
      * Templating directive:
      * Select
     */
-    module.directive("angularSelect", [function() {
+    module.directive('abSelect', ['$log', function($log) {
         return {
-            restrict: "E",
+            restrict: 'E',
             link: function(scope) {
-                console.log("initialized select with scope:", scope);
+                $log.info('initialized select with scope:', scope);
             },
             templateUrl: '/portalserver/static/angularbundle/directives/select/select.html',
             replace: true

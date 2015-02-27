@@ -5,9 +5,9 @@ define(['angular'], function(angular) {
 
     // Example Controller As
     module.controller('PersonController', [function() {
-        var vm = this;
-        vm.name = 'John';
-        vm.lastName = 'Doe';
+        var viewModel = this;
+        viewModel.name = 'John';
+        viewModel.lastName = 'Doe';
     }]);
 
     return function(widget) {

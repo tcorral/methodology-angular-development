@@ -1,23 +1,23 @@
-define(['angular', 'countries-factory'], function(angular) {
+define(['angular', 'countries-service'], function(angular) {
     'use strict';
 
     var module = angular.module('AngularConsumeDataFactory', ['CountriesService']);
 
     module.controller('CountryController', ['CountriesFactory', function(countries) {
-        var vm = this;
+        var viewModel = this;
 
-        vm.getCountries = function () {
+        viewModel.getCountries = function () {
             countries
                 .getCountries()
                 .success(function(data) {
-                    vm.countries = data;
+                    viewModel.countries = data;
                 })
                 .error(function(e) {
                     console.error(e);
                 });
         };
 
-        vm.getCountries();
+        viewModel.getCountries();
     }]);
 
     return function(widget) {

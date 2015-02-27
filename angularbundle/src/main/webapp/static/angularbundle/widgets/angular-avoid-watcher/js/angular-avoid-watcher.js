@@ -1,16 +1,16 @@
-define(['angular', 'angular-widget-factory'], function(angular) {
+define(['angular', 'data-store'], function(angular) {
     'use strict';
 
-    var module = angular.module('AngularAvoidWatch', ['WidgetFactory']);
+    var module = angular.module('AngularAvoidWatch', ['DataStore']);
 
-    module.controller('Controller1', ['Mediator', function(mediator) {
-        var vm = this;
-        vm.variable1 = mediator.obj;
+    module.controller('SomeController', ['MediatorFactory', function(mediator) {
+        var viewModel = this;
+        viewModel.variable1 = mediator.obj;
     }]);
 
-    module.controller('Controller2', ['Mediator', function(mediator) {
-        var vm = this;
-        vm.variable2 = mediator.obj;
+    module.controller('AnotherController', ['MediatorFactory', function(mediator) {
+        var viewModel = this;
+        viewModel.variable2 = mediator.obj;
     }]);
 
     return function(widget) {

@@ -6,12 +6,12 @@
 </head>
 <body class="ab-angular-avoid-watcher ng-cloak" g:onload="requireWidget(__WIDGET__, 'js/angular-avoid-watcher');">
     <p>In this example, we can see how to put in communication two different controllers and models using a factory as a mediator</p>
-    
-    <div class="form-group" ng-controller="Controller1 as c1">
+
+    <div class="form-group" ng-controller="SomeController as c1">
         <input class="form-control" ng-model="c1.variable1.value" placeholder="Type something here..." />
     </div>
 
-    <div class="form-group" ng-controller="Controller2 as c2">
+    <div class="form-group" ng-controller="AnotherController as c2">
         <input class="form-control" ng-model="c2.variable2.value" placeholder="That will be reflected here..." />
     </div>
 </body>

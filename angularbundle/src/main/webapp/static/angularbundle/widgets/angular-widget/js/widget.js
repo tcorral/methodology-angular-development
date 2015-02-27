@@ -1,42 +1,42 @@
-define(['angular', 'angular-widget-factory', 'countries-factory', 'select'], function(angular) {
+define(['angular', 'data-store', 'countries-service', 'ab-select'], function(angular) {
     'use strict';
 
-    var module = angular.module('AngularWidget', ['WidgetFactory', 'CountriesService', 'directive.widget.select']);
+    var module = angular.module('AngularWidget', ['DataStore', 'CountriesService', 'DemoDirective']);
 
     // Example to avoid $scope
     module.controller('PersonController', [function() {
-        var vm = this;
-        vm.name = 'John';
-        vm.lastName = 'Doe';
+        var viewModel = this;
+        viewModel.name = 'John';
+        viewModel.lastName = 'Doe';
     }]);
 
     // Example to consume a factory called 'CountriesFactory'
     module.controller('CountryController', ['CountriesFactory', function(countries) {
-        var vm = this;
+        var viewModel = this;
 
-        vm.getCountries = function () {
+        viewModel.getCountries = function () {
             countries
                 .getCountries()
                 .success(function(data) {
-                    vm.countries = data;
+                    viewModel.countries = data;
                 })
                 .error(function(e) {
                     console.error(e);
                 });
         };
 
-        vm.getCountries();
+        viewModel.getCountries();
     }]);
 
     // Simple example to avoid using a $watcher
-    module.controller('Controller1', ['Mediator', function(mediator) {
-        var vm = this;
-        vm.variable1 = mediator.obj;
+    module.controller('SomeController', ['MediatorFactory', function(mediator) {
+        var viewModel = this;
+        viewModel.variable1 = mediator.obj;
     }]);
 
-    module.controller('Controller2', ['Mediator', function(mediator) {
-        var vm = this;
-        vm.variable2 = mediator.obj;
+    module.controller('AnotherController', ['MediatorFactory', function(mediator) {
+        var viewModel = this;
+        viewModel.variable2 = mediator.obj;
     }]);
 
     return function(widget) {

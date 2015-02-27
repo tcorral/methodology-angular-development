@@ -2,10 +2,8 @@
 
 ### About
 
-This styleguide is aimed at front-end developers interested in developing widgets for the Backbase CXP platform using the [AngularJS](https://angularjs.org/) framework. The objective is to:
+This styleguide is aimed at front-end developers interested in developing widgets for the Backbase CXP platform using the [AngularJS](https://angularjs.org/) framework. The objective is to present the best practices for Backbase Widget development using Angular
 
- 1. Present the best practices for Backbase Widget development using Angular
- 2. Address things to take in consideration when migrating from Angular 1.2 to Angular 1.3
 
 ### References
 
@@ -19,32 +17,81 @@ Furthermore, knowledge of [Backbase's Widget Development Methodology](https://gi
 ### Table of Contents
 
  - [Coding Conventions](#coding-conventions)
+    - [Naming Conventions](#naming-conventions)
+        - [Variables](#variables)
+        - [Controllers & Factories](#modules--controllers--factories)
+        - [Directives](#directives)
+        - [Methods](#methods)
+    - [Overall Conventions](#overall-conventions)
  - [Performance](#performance)
     - [Controllers & $scope](#controllers--scope)
     - [Factories](#factories)
-    - [Directives](#directives)
+    - [Directives](#directives-1)
     - [Filters](#filters)
  - [Example widgets](#example-widgets)
-    - [Using Angular with Require.js](#use-angular-with-requirejs)
-    - [Use 'ControllerAs'](#use-controlleras)
+    - [Using Angular with Require.js](#using-angular-with-requirejs)
+    - [Using 'ControllerAs'](#using-controlleras)
     - [Avoiding $watchers in controllers](#avoiding-watchers-in-controllers)
     - [Avoiding $scope references in controllers](#avoiding-scope-references-in-controllers)
     - [$log](#log)
-    - [Directives](#directives-1)
+    - [Directives](#directives-2)
     - [Bind Once](#bind-once)
     - [Angular Hint](#angular-hint)
  - [Advanced Topics](#advanced-topics)
 
 ## Coding Conventions
 
- - Keep naming of controllers and factories simple and consistent. For example, let's say we are building a todo app, naming should be as follows:
-    - `TodoCtrl` for a controller
-    - `TodoFactory` for a factory
- - Also keep methods and properties names consistent across shared methods, such as `this.something = MyFactory.something`
+### Naming Conventions
 
-The value of these first two points is to simplify collaboration amongst developers, making it easy for other developers in your team to pick up and understand your code. Furthermore, you should:
+The value of naming conventions is to simplify collaboration amongst developers, making it easy for other developers in your team to pick up and understand your code. As a general rule, be explicit with your naming, **do not use single letters or abbreviations to reference variables or methods**, be as verbose as you need to be. This will have no impact on the performance of your code once optimised for production, and it will improve collaboration amongst developers.
 
- - If there is **only one controller** for your widget, instantiate the controller on the body tag of your widget definition, .i.e: `<body ng-controller="TodoCtrl">`
+#### Variables
+
+Variable names should be camel-cased, as such:
+
+```javascript
+var viewModel = this;
+```
+
+#### Modules, Controllers & Factories
+
+Keep naming of modules, controllers and factories consistent. For example, let's say we are building a "todo" app, naming should be as follows:
+
+```javascript
+// Module
+var module = angular.module('Todo', []);
+// controller
+module.controller('TodoController', [function() {}]);
+// factories
+module.factory('TodoFactory', [function() {}]);
+```
+
+#### Directives
+
+Directives Names should be camel-cased, and prepended with the bundle's initials. For example, let's say your bundle is called "angularbundle":
+
+```javascript
+module.directive('abSelect', [function() {}])
+```
+
+Then, you can use your directive as such:
+
+```html
+<ab-select></ab-select>
+```
+
+#### Methods
+
+Methods names should be camel-cased. Also, keep methods and properties names consistent across shared methods, for exmaple:
+
+```javascript
+module.controller('TodoController', ['TodoFactory', function(TodoFactory) {
+    this.someMethod = TodoFactory.someMethod;
+}]);
+```
+
+### Overall Conventions
+ - If there is **only one controller** for your widget, instantiate the controller on the body tag of your widget definition, .i.e: `<body ng-controller="TodoController">`
  - Always use the `ng-cloak` class on the body tag of your widget definition to avoid FOUC problems when loading the widget
  - Avoid using Angular's `$on`, `$broadcast` and `$emit` methods. Instead, use backbase's own PubSub library for [inter-widget communication](https://my.backbase.com/resources/how-to-guides/inter-widget-communication)
  - Do not chain modules, controllers, factories and directives. Instead, create an Angular module and cache it in a variable for faster access
@@ -52,12 +99,12 @@ The value of these first two points is to simplify collaboration amongst develop
 
 ```javascript
 // good practice
-module.controller('TodoCtrl', ['$http', function($http) {
+module.controller('TodoController', ['$http', function($http) {
     ...
 }]);
 
 // bad practice
-module.controller('TodoCtrl', function($http) {
+module.controller('TodoController', function($http) {
     ...
 });
 ```
@@ -150,11 +197,11 @@ Filters are extremely expensive performance-wise. Each filter creates a watcher,
 
 ## Example Widgets
 
-### Use Angular with Require.js
+### Using Angular with Require.js
 
 In this simple example, we show you how to load and use AngularJS in a Require.js module. [[View Code]](angularbundle/src/main/webapp/static/angularbundle/widgets/angular-widget)
 
-### Use 'ControllerAs'
+### Using 'ControllerAs'
 
 In this example, we show you how to use the "controller as" feature to remove dependency on the $scope. [[View Code]](angularbundle/src/main/webapp/static/angularbundle/widgets/angular-controller-as)
 

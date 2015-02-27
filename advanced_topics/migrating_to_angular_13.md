@@ -1,5 +1,9 @@
 ## Angular 1.3
 
+### About
+
+The objective of this article is to address things to take in consideration when migrating from Angular 1.2 to Angular 1.3 for Baclbase widget development.
+
 ### When to use ?
 
 If you don't have to support Internet Explorer 8, and you are using a CXP Portal 5.5.1.1 (at least), you can upgrade AngularJS to 1.3.x branch and enjoy all new features and performance improvements!
@@ -63,9 +67,9 @@ For performance reasons, the Angular team introduced a new concept in AngularJS 
 In order to bypass this behavior, you will need to set the `$stateful` property of your filter to `true`, as such:
 
 ```javascript
-var module = angular.module('myApp', [])
+var module = angular.module('MyApp', [])
 
-module.filter('customFilter', ['someService', function (someService) {
+module.filter('customFilter', ['SomeService', function (SomeService) {
     function customFilter(input) {
         // manipulate input with someService
         input += someService.getData();

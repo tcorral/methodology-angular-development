@@ -1,17 +1,17 @@
-define(['angular', 'angular-widget-factory', 'countries-factory', 'select', 'angular-hint'], function(angular) {
+define(['angular', 'data-store', 'countries-service', 'ab-select', 'angular-hint'], function(angular) {
     'use strict';
 
-    var module = angular.module('AngularWidget', ['WidgetFactory']);
+    var module = angular.module('AngularWidget', ['DataStore']);
 
     // Simple example to avoid using a $watcher
-    module.controller('Controller1', ['Mediator', function(mediator) {
-        var vm = this;
-        vm.variable1 = mediator.obj;
+    module.controller('Controller1', ['MediatorFactory', function(mediator) {
+        var viewModel = this;
+        viewModel.variable1 = mediator.obj;
     }]);
 
-    module.controller('Controller2', ['Mediator', function(mediator) {
-        var vm = this;
-        vm.variable2 = mediator.obj;
+    module.controller('Controller2', ['MediatorFactory', function(mediator) {
+        var viewModel = this;
+        viewModel.variable2 = mediator.obj;
     }]);
 
     return function(widget) {

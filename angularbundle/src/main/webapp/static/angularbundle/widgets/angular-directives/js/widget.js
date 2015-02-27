@@ -1,23 +1,23 @@
-define(['angular', 'countries-factory', 'select'], function(angular) {
+define(['angular', 'countries-service', 'ab-select'], function(angular) {
     'use strict';
 
-    var module = angular.module('AngularDirectives', ['CountriesService', 'directive.widget.select']);
+    var module = angular.module('AngularDirectives', ['CountriesService', 'DemoDirective']);
 
     module.controller('CountryController', ['CountriesFactory', function(countries) {
-        var vm = this;
+        var viewModel = this;
 
-        vm.getCountries = function () {
+        viewModel.getCountries = function () {
             countries
                 .getCountries()
                 .success(function(data) {
-                    vm.countries = data;
+                    viewModel.countries = data;
                 })
                 .error(function(e) {
                     console.error(e);
                 });
         };
 
-        vm.getCountries();
+        viewModel.getCountries();
     }]);
 
     return function(widget) {

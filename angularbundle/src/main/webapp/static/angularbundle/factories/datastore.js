@@ -1,12 +1,12 @@
 define(['angular'], function(angular) {
     'use strict';
 
-    var module = angular.module('WidgetFactory', [])
+    var module = angular.module('DataStore', [])
 
-    module.factory('Mediator', [function() {
+    module.factory('MediatorFactory', [function() {
         return {
             obj: {
-                value: ""
+                value: ''
             }
         };
     }]);
