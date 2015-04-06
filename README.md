@@ -1,8 +1,8 @@
-# Angular Cookbook for Backbase Widget Development
+# Angular Development Methodology
 
 ### About
 
-This styleguide is aimed at front-end developers interested in developing widgets for the Backbase CXP platform using the [AngularJS](https://angularjs.org/) framework. The objective is to present the best practices for Backbase Widget development using Angular
+This styleguide is aimed at front-end developers interested in developing for the Backbase CXP platform using the [AngularJS](https://angularjs.org/) framework. The objective is to present the best practices for Backbase Widget and Portal development using Angular
 
 
 ### References
