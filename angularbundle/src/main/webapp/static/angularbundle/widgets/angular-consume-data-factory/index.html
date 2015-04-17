@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:g="http://www.backbase.com/2008/gadget">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Angular Consume Factory Data</title>
+</head>
+<body class="ab-angular-consume-data-factory ng-cloak" g:onload="requireWidget(__WIDGET__, 'js/widget');">
+
+    <h2>Country Selector</h2>
+
+    <div class="form-group" ng-controller="CountryController as vm">
+
+        <p ng-if="!vm.countries">Loading countries from the remote service...</p>
+
+        <select class="form-control" ng-if="vm.countries" ng-model="countrySelector" ng-options="country.name for country in vm.countries">
+            <option ng-disabled="true" value="">Select a country...</option>
+        </select>
+
+    </div>
+
+</body>
+</html>

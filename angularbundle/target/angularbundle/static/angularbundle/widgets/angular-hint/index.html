@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:g="http://www.backbase.com/2008/gadget">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Angular Hint</title>
+    <script type="text/javascript" src="../../conf/require-conf.js"></script>
+</head>
+<body class="angular-widget ng-cloak" g:onload="requireWidget(__WIDGET__, 'js/angular-hint');">
+
+<div ng-controller="PersonController as person">
+    <h2>{{person.name}} {{person.lastName}}</h2>
+</div>
+
+<!--<ul ng-controller="CountryController as vm">-->
+<!--<li ng-repeat="country in vm.countries">{{country.name}}</li>-->
+<!--</ul>-->
+
+<div ng-controller="Controller1 as controller">
+    <input ng-model="controller.variable1.value"/>
+</div>
+
+<div ng-controller="Controller2 as controller3">
+    <input ng-model="controller3.variable2.value"/>
+</div>
+
+<div ng-controller="CountryController as vm">
+    <angular-select></angular-select>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.backbase.extensions</groupId>
+  <artifactId>angularbundle</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>angularbundle</name>
+
+  <repositories>
+        <repository>
+            <id>Backbase Artifact Repository</id>
+            <url>https://repo.backbase.com/repo</url>
+        </repository>
+    </repositories>
+
+    <!--<scm>
+        <connection>scm:svn:https://svn.backbase.com/services/Mosaic/tags/mosaic-social-0.1</connection>
+        <developerConnection>scm:svn:https://svn.backbase.com/services/Mosaic/tags/mosaic-social-0.1</developerConnection>
+        <url>https://svn.backbase.com/services/Mosaic/tags/mosaic-social-0.1</url>
+    </scm>-->
+
+    <properties>
+        <bundle.name>angularbundle</bundle.name>
+        <work.dir>${project.build.directory}/${project.build.finalName}</work.dir>
+        <build.dir>${project.build.directory}/${bundle.name}</build.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <widgets.zip.name>${bundle.name}</widgets.zip.name>
+        <jshint.fail.ignore>true</jshint.fail.ignore>
+    </properties>
+
+    <build>
+        <finalName>${widgets.zip.name}</finalName>
+        <plugins>
+         <plugin>
+			 <groupId>org.apache.maven.plugins</groupId>
+			 <artifactId>maven-deploy-plugin</artifactId>
+			 <version>2.4</version>
+			</plugin>
+
+            <!-- Do a mvn release:prepare and a mvn release:perform if you want to release -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <!--<preparationGoals>clean verify install</preparationGoals>-->
+                    <!-- During release:perform, enable the "release" profile -->
+                    <!--<useReleaseProfile>false</useReleaseProfile>-->
+                    <releaseProfiles>release</releaseProfiles>
+                    <!--<autoVersionSubmodules>true</autoVersionSubmodules>-->
+                    <goals>deploy</goals>
+                </configuration>
+            </plugin>
+       <plugin>
+		          <groupId>ro.isdc.wro4j</groupId>
+		          <artifactId>wro4j-maven-plugin</artifactId>
+		          <version>1.7.0</version>
+				    <executions>
+				      <execution>
+				        <phase>compile</phase>
+				        <goals>
+				          <goal>jshint</goal>
+				        </goals>
+				      </execution>
+				    </executions>
+				    <configuration>
+				      <options>jquery,devel,evil,noarg,eqnull,curly</options>
+				      <failNever>true</failNever>
+				     
+				      <wroFile>src/main/wro.xml</wroFile>
+				    </configuration>
+		        </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-statics-to-build-folder</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${build.dir}/static/${bundle.name}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/webapp/static/${bundle.name}</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-web-inf-to-build-folder</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${build.dir}/WEB-INF/${bundle.name}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/webapp/WEB-INF/${bundle.name}</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-import-files-to-build-folder</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${build.dir}/WEB-INF/classes/import/${bundle.name}/</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/import</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-profiles-to-build-folder</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${build.dir}/configuration/profiles</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>configuration/profiles</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>assembly/bundle.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+      <profiles>
+        <profile>
+            <id>backbase.com/repo</id>
+            <distributionManagement>
+                <repository>
+                    <id>repo.backbase.com</id>
+                    <name>repo.backbase.com-releases</name>
+                    <url>https://repo.backbase.com//expert-release-local</url>
+                </repository>
+                <snapshotRepository>
+                    <id>repo.backbase.com</id>
+                    <name>repo.backbase.com-snapshots</name>
+                    <url>https://repo.backbase.com//expert-release-local</url>
+                </snapshotRepository>
+            </distributionManagement>
+
+        </profile>
+
+        <profile>
+            <id>backbase.com/artifacts</id>
+            <distributionManagement>
+                <repository>
+                    <id>artifacts.backbase.com</id>
+                    <name>artifacts.backbase.com-releases</name>
+                    <url>https://artifacts.backbase.com/backbase-ps-releases</url>
+                </repository>
+                <snapshotRepository>
+                    <id>artifacts.backbase.com</id>
+                    <name>artifacts.backbase.com-snapshots</name>
+                    <url>https://artifacts.backbase.com/backbase-ps-snapshots</url>
+                </snapshotRepository>
+            </distributionManagement>
+
+        </profile>
+    </profiles>
+</project>
+
